@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour 
-{
+{	
+	public int life;
 	[SerializeField]
 	GameObject target;
 	[SerializeField]
 	LayerMask whoIsEnemy;
+
+	bool gameOver;
+	
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -25,8 +30,15 @@ public class PlayerControl : MonoBehaviour
 		while (true)
 		{
 			yield return null;
-			TargetControl();
-			ShootControl();
+			if(!gameOver)
+			{
+				TargetControl();
+				ShootControl();
+			}
+			if(life <= 0)
+			{
+				gameOver = true;
+			}		
 		}
 	}
 
@@ -49,5 +61,13 @@ public class PlayerControl : MonoBehaviour
 
 			}
 		}
+	}
+
+	private void OnTriggerEnter(Collider other) 
+	{
+		if (other.gameObject.CompareTag("Enemy"))
+		{
+			
+		}	
 	}
 }
