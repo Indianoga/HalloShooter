@@ -9,9 +9,10 @@ public class PlayerControl : MonoBehaviour
 	GameObject target;
 	[SerializeField]
 	LayerMask whoIsEnemy;
-
+	[SerializeField]
+	GameObject damagePrefab;
 	bool gameOver;
-	
+	bool feedbackImage;
 
 	// Use this for initialization
 	void Start () 
@@ -34,11 +35,14 @@ public class PlayerControl : MonoBehaviour
 			{
 				TargetControl();
 				ShootControl();
+				
 			}
 			if(life <= 0)
 			{
 				gameOver = true;
-			}		
+			}	
+
+			FeedBack();	
 		}
 	}
 
@@ -63,12 +67,31 @@ public class PlayerControl : MonoBehaviour
 			}
 		}
 	}
-
-	private void OnTriggerEnter(Collider other) 
+	void FeedBack()
+	{
+		if(!feedbackImage)
+		{
+			damagePrefab.SetActive(false);
+		}
+		else
+		{
+			damagePrefab.SetActive(true);
+		}
+	}
+	private void OnTriggerStay(Collider other) 
 	{
 		if (other.gameObject.CompareTag("Enemy"))
 		{
-			
+			feedbackImage = true;
 		}	
+		else
+		{
+			feedbackImage = false;
+		}
+			
 	}
+
+
+
+	
 }
