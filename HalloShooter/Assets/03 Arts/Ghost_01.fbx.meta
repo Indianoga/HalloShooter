@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: ba438ea72a95a8f4eb4a4e2ed6ec145b
-timeCreated: 1552668266
+guid: 54c1a0c073620ce4f9e0c4884a905e50
+timeCreated: 1552927377
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: ghost
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCube26
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 50
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -85,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

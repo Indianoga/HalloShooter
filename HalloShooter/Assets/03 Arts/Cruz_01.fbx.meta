@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: bd16ef609c562d64bb732512a1cb4a19
-timeCreated: 1552668267
+guid: 97f4a71780ae1ce42aaed43bbc277500
+timeCreated: 1552927378
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: lambert19
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCube12
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -85,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
