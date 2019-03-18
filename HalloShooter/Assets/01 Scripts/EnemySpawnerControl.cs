@@ -51,7 +51,7 @@ public class EnemySpawnerControl : MonoBehaviour
 			{
 				NextWave();
 			}
-			Debug.Log(level);
+			
 		}
 	}
 
