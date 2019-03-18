@@ -5,24 +5,24 @@ using UnityEngine.AI;
 
 public class EnemyControl : MonoBehaviour {
 	[SerializeField]
-	GameObject camera;
+	GameObject cam;
 	[SerializeField]
 	GameObject target;
 	public EnemyInfo enemyInfo;
-	
-
 	[HideInInspector]
 	bool damageControl;
 	PlayerControl player;
 	NavMeshAgent agent;
+	Rigidbody rb;
 	
 	// Use this for initialization
 	void Start () 
 	{
 		target = GameObject.FindGameObjectWithTag ("Player");
-		camera = GameObject.FindGameObjectWithTag("MainCamera");
-		player = camera.GetComponent<PlayerControl>();
+		cam = GameObject.FindGameObjectWithTag("MainCamera");
+		player = cam.GetComponent<PlayerControl>();
 		agent = GetComponent<NavMeshAgent>();
+		rb = GetComponent<Rigidbody>();
 		StartCoroutine("Action");
 	}
 	
@@ -38,12 +38,27 @@ public class EnemyControl : MonoBehaviour {
 		{
 			yield return null;
 			Walk();
+			
 		}
 	}
 
 	void Walk()
 	{
-		agent.SetDestination(target.transform.position);
+		if(this != null)
+		{
+			agent.SetDestination(target.transform.position);
+		}
+		
+	}
+
+	public void TakeDamage()
+	{
+		enemyInfo.life--;
+		transform.Translate(new Vector3(0,0,-0.5f));
+		if(enemyInfo.life <= 0)
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	private void OnTriggerStay(Collider other) 
@@ -67,6 +82,9 @@ public class EnemyControl : MonoBehaviour {
 		yield return new WaitForSeconds(2f);
 		damageControl = false;
 	}
+
+	
+
 }
 
 [System.Serializable]

@@ -57,7 +57,8 @@ public class PlayerControl : MonoBehaviour
 			RaycastHit enemyCheck; 
 			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out enemyCheck,100,whoIsEnemy))
 			{
-				Destroy(enemyCheck.collider.gameObject);
+				
+				enemyCheck.collider.gameObject.GetComponent<EnemyControl>().TakeDamage();
 
 			}
 		}
