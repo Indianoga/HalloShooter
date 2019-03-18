@@ -58,6 +58,7 @@ public class PlayerControl : MonoBehaviour
 	{
 		if(Input.GetButtonDown("Fire1"))
 		{
+			SoundManager.instance.Play("Player", SoundManager.instance.clipList.shoot,1f);
 			RaycastHit enemyCheck; 
 			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out enemyCheck,100,whoIsEnemy))
 			{
