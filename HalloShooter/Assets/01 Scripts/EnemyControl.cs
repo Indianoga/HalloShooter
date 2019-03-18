@@ -8,21 +8,25 @@ public class EnemyControl : MonoBehaviour {
 	GameObject cam;
 	[SerializeField]
 	GameObject target;
+	[SerializeField]
+	GameObject enemySystemPrefab;
 	public EnemyInfo enemyInfo;
 	[HideInInspector]
 	bool damageControl;
 	PlayerControl player;
+	EnemySpawnerControl enemySpawnerControl;
 	NavMeshAgent agent;
-	Rigidbody rb;
 	
 	// Use this for initialization
 	void Start () 
 	{
 		target = GameObject.FindGameObjectWithTag ("Player");
 		cam = GameObject.FindGameObjectWithTag("MainCamera");
+		enemySystemPrefab = GameObject.FindGameObjectWithTag("EnemyControl");
 		player = cam.GetComponent<PlayerControl>();
+		enemySpawnerControl = enemySystemPrefab.GetComponent<EnemySpawnerControl>();
 		agent = GetComponent<NavMeshAgent>();
-		rb = GetComponent<Rigidbody>();
+		
 		StartCoroutine("Action");
 	}
 	
@@ -42,6 +46,7 @@ public class EnemyControl : MonoBehaviour {
 		}
 	}
 
+
 	void Walk()
 	{
 		if(this != null)
@@ -58,6 +63,7 @@ public class EnemyControl : MonoBehaviour {
 		if(enemyInfo.life <= 0)
 		{
 			Destroy(gameObject);
+			enemySpawnerControl.spawnerControl--;
 		}
 	}
 
