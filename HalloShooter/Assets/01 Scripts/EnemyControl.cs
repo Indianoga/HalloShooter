@@ -84,6 +84,7 @@ public class EnemyControl : MonoBehaviour {
 	IEnumerator Attack()
 	{
 		player.life--;
+		SoundManager.instance.Play("Player",SoundManager.instance.clipList.monsterGroon,1f);
 		damageControl = true;
 		yield return new WaitForSeconds(2f);
 		damageControl = false;

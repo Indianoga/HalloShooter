@@ -1506,7 +1506,7 @@ MonoBehaviour:
   clipList:
     shoot: {fileID: 8300000, guid: 9bd27d6e68e301748a891d4c1359b56c, type: 3}
     monsterSpawn: {fileID: 0}
-    monsterGroon: {fileID: 0}
+    monsterGroon: {fileID: 8300000, guid: bb26fd1a1a266704dad6ec759556bfaf, type: 3}
     takeDamage: {fileID: 0}
     death: {fileID: 0}
     monsterDeath: {fileID: 0}
