@@ -100,4 +100,5 @@ public class EnemyInfo
 	public string type;
 	public int life;
 	public int strenght;
+	public int points;
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawnerControl : MonoBehaviour 
 {
@@ -8,14 +9,15 @@ public class EnemySpawnerControl : MonoBehaviour
 	GameObject[] enemyPrefab;
 	[SerializeField]
 	Transform[]  spawners;
-
+	[SerializeField]
+	Text score;
 	int level;
 	int count = 0;
 	int enemyCount;
 	int safeSpawner;
 	[HideInInspector]
 	public int spawnerControl;
-
+	int points = 0;
 	bool waves;
 
 	// Use this for initialization
@@ -35,12 +37,13 @@ public class EnemySpawnerControl : MonoBehaviour
 	{	while (true)
 		{
 			yield return null;
-			if(Input.GetButtonDown("Fire1"))break;
+			if(Input.GetKeyDown(KeyCode.Space))break;
 		}
 		
 		while (true)
 		{
 			yield return null;
+			score.text = string.Format("Score: {0} ", points.ToString("00") );
 			Levels();
 			if(!waves)
 			{
