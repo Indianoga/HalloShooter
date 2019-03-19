@@ -11,13 +11,18 @@ public class EnemySpawnerControl : MonoBehaviour
 	Transform[]  spawners;
 	[SerializeField]
 	Text score;
+	[SerializeField]
+	GameObject infoButton;
+	[SerializeField]
+	GameObject comandsPrefab;
 	int level;
 	int count = 0;
 	int enemyCount;
 	int safeSpawner;
 	[HideInInspector]
 	public int spawnerControl;
-	int points = 0;
+	[HideInInspector]
+	public int points;
 	bool waves;
 
 	// Use this for initialization
@@ -39,11 +44,13 @@ public class EnemySpawnerControl : MonoBehaviour
 			yield return null;
 			if(Input.GetKeyDown(KeyCode.Space))break;
 		}
-		
+		infoButton.SetActive(false);
+		StartCoroutine("Comand");
 		while (true)
 		{
 			yield return null;
-			score.text = string.Format("Score: {0} ", points.ToString("00") );
+		
+			score.text = string.Format("Score: {0} ", points.ToString("0") );
 			Levels();
 			if(!waves)
 			{
@@ -57,7 +64,12 @@ public class EnemySpawnerControl : MonoBehaviour
 			
 		}
 	}
-
+	IEnumerator Comand()
+	{
+		comandsPrefab.SetActive(true);
+		yield return new WaitForSeconds(2f);
+		comandsPrefab.SetActive(false);
+	}
 	void Levels()
 	{
 		if(level == 0)

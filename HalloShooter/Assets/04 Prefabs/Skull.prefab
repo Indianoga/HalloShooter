@@ -127,10 +127,12 @@ MonoBehaviour:
   cam: {fileID: 0}
   target: {fileID: 0}
   enemySystemPrefab: {fileID: 0}
+  dmgPrefab: {fileID: 1355201881610050, guid: 265165a1161defa45b9e5e274299972a, type: 2}
   enemyInfo:
     type: Skull
     life: 3
     strenght: 0
+    points: 15
 --- !u!195 &195837233591580410
 NavMeshAgent:
   m_ObjectHideFlags: 1

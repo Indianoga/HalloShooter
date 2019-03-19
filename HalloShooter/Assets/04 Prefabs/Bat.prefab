@@ -255,10 +255,12 @@ MonoBehaviour:
   cam: {fileID: 0}
   target: {fileID: 0}
   enemySystemPrefab: {fileID: 0}
+  dmgPrefab: {fileID: 1355201881610050, guid: 265165a1161defa45b9e5e274299972a, type: 2}
   enemyInfo:
     type: Bat
     life: 1
     strenght: 0
+    points: 5
 --- !u!195 &195588639158455478
 NavMeshAgent:
   m_ObjectHideFlags: 1

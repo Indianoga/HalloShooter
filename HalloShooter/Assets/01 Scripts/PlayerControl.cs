@@ -127,7 +127,7 @@ public class PlayerControl : MonoBehaviour
 			yield return null;
 			if(isReloadin)
 			{
-				yield return new WaitForSeconds(0.6f);
+				yield return new WaitForSeconds(0.3f);
 				shootCount++;
 				if(shootCount == 1)
 				{

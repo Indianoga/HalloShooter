@@ -10,9 +10,12 @@ public class EnemyControl : MonoBehaviour {
 	GameObject target;
 	[SerializeField]
 	GameObject enemySystemPrefab;
+	[SerializeField]
+	GameObject dmgPrefab;
 	public EnemyInfo enemyInfo;
 	[HideInInspector]
 	bool damageControl;
+
 	PlayerControl player;
 	EnemySpawnerControl enemySpawnerControl;
 	NavMeshAgent agent;
@@ -60,10 +63,13 @@ public class EnemyControl : MonoBehaviour {
 	{
 		enemyInfo.life--;
 		transform.Translate(new Vector3(0,0,-0.5f));
+		Instantiate(dmgPrefab,transform.position,transform.rotation);
 		if(enemyInfo.life <= 0)
 		{
-			Destroy(gameObject);
 			enemySpawnerControl.spawnerControl--;
+			enemySpawnerControl.points += enemyInfo.points;
+			Destroy(gameObject);
+			
 		}
 	}
 
